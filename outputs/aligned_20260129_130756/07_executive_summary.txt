@@ -1,0 +1,31 @@
+
+============================================================
+DATABASE SUMMARY
+============================================================
+
+Total Programs: 7
+
+BY STATUS:
+  ACTIVE (usable):      6
+  FEDERAL:              0
+  DUPLICATE:            1
+  EXPIRED:              0
+  NON-INCENTIVE:        0
+  MISSING-LINK:         0
+  HALLUCINATION:        0
+
+USABLE PROGRAMS: 6
+
+COVERAGE SCORE: 25.0%
+
+GAPS IDENTIFIED: 16
+  - [MODERATE] No programs found targeting ex_offenders
+  - [MODERATE] No programs found targeting long_term_unemployed
+  - [CRITICAL] No wage_subsidy programs found
+
+RECOMMENDATIONS:
+  - CRITICAL: Add missing federal programs: Work Opportunity Tax Credit (WOTC), Federal Bonding Program, WIOA On-the-Job Training, Vocational Rehabilitation. These are available in all states.
+  - Run additional searches for populations: ex_offenders, long_term_unemployed
+  - Search for missing program types: wage_subsidy, wage_reimbursement, training_grant, bonding, ojt
+
+============================================================

@@ -1,0 +1,31 @@
+
+============================================================
+DATABASE SUMMARY
+============================================================
+
+Total Programs: 42
+
+BY STATUS:
+  ACTIVE (usable):      17
+  FEDERAL:              7
+  DUPLICATE:            0
+  EXPIRED:              0
+  NON-INCENTIVE:        14
+  MISSING-LINK:         3
+  HALLUCINATION:        1
+
+USABLE PROGRAMS: 24
+
+COVERAGE SCORE: 86.0%
+
+GAPS IDENTIFIED: 36
+  - [MODERATE] No programs found targeting long_term_unemployed
+  - [MODERATE] Program 'VOA Colorado Veteran Employment Services' has verification issues: Low confidence in program existence
+  - [MODERATE] Program 'ReHire Colorado - Goodwill' has verification issues: Government program (state) has non-.gov URL
+
+RECOMMENDATIONS:
+  - CRITICAL: Review 3 potential hallucinations and remove if not verifiable.
+  - Run additional searches for populations: long_term_unemployed
+  - Resolve 32 verification issues (missing URLs, low confidence)
+
+============================================================

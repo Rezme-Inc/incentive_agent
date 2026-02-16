@@ -1,0 +1,31 @@
+
+============================================================
+DATABASE SUMMARY
+============================================================
+
+Total Programs: 13
+
+BY STATUS:
+  ACTIVE (usable):      8
+  FEDERAL:              4
+  DUPLICATE:            0
+  EXPIRED:              0
+  NON-INCENTIVE:        1
+  MISSING-LINK:         0
+  HALLUCINATION:        0
+
+USABLE PROGRAMS: 12
+
+COVERAGE SCORE: 58.5%
+
+GAPS IDENTIFIED: 13
+  - [CRITICAL] No wage_subsidy programs found
+  - [MODERATE] No wage_reimbursement programs found
+  - [MODERATE] No training_grant programs found
+
+RECOMMENDATIONS:
+  - CRITICAL: Add missing federal programs: WIOA On-the-Job Training, Vocational Rehabilitation. These are available in all states.
+  - Search for missing program types: wage_subsidy, wage_reimbursement, training_grant, ojt
+  - Resolve 7 verification issues (missing URLs, low confidence)
+
+============================================================

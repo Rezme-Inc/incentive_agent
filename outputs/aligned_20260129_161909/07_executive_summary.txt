@@ -1,0 +1,29 @@
+
+============================================================
+DATABASE SUMMARY
+============================================================
+
+Total Programs: 39
+
+BY STATUS:
+  ACTIVE (usable):      26
+  FEDERAL:              8
+  DUPLICATE:            0
+  EXPIRED:              0
+  NON-INCENTIVE:        5
+  MISSING-LINK:         0
+  HALLUCINATION:        0
+
+USABLE PROGRAMS: 34
+
+COVERAGE SCORE: 100.0%
+
+GAPS IDENTIFIED: 38
+  - [MODERATE] Program 'Illinois Veterans Tax Credit' has verification issues: Government program (state) has non-.gov URL
+  - [MODERATE] Program 'Cook County Veterans Employment and Job Training' has verification issues: Low confidence in program existence
+  - [MODERATE] Program 'Illinois Department of Central Management Services Veterans Hiring Initiative' has verification issues: Low confidence in program existence
+
+RECOMMENDATIONS:
+  - Resolve 38 verification issues (missing URLs, low confidence)
+
+============================================================

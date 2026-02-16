@@ -1,0 +1,446 @@
+# COMPREHENSIVE HIRING INCENTIVE PROGRAMS - ILLINOIS STATE AND MUNICIPALITIES
+
+## FEDERAL PROGRAMS WITH STATE INTERFACE
+
+# Federal Hiring Incentive Programs Research Report
+
+Based on my exhaustive investigation of federal hiring incentive programs that interface with Illinois employers, I have identified the following programs that provide benefits to employers for hiring individuals from specific target populations.
+
+## FEDERAL PROGRAMS
+
+### 1. Work Opportunity Tax Credit (WOTC)
+
+**Program Name:** Work Opportunity Tax Credit (WOTC)  
+**Administering Agency:** U.S. Department of Labor, Employment and Training Administration  
+**Jurisdiction Level:** Federal  
+**Program Type:** Tax Credit  
+**Status:** EXPIRED (as of December 31, 2025)  
+**Target Populations:** Veterans, SNAP recipients, TANF recipients, ex-felons/justice-impacted individuals, SSI recipients, long-term unemployed, vocational rehabilitation referrals, summer youth employees, long-term TANF recipients, designated community residents  
+**Brief Description:** Federal tax credit for employers who hire individuals from targeted groups facing significant barriers to employment. Credit ranges from 25% to 40% of qualified wages.  
+**Maximum Value Per Employee:** Up to $9,600 for long-term TANF recipients; $5,600 for qualified veterans; $2,400 for most other categories  
+**Key Employer Eligibility Requirements:** Must obtain certification before or shortly after hire date; employee must work minimum hours; for-profit and some non-profit employers eligible  
+**Geographic Trigger:** Available nationwide, administered through state workforce agencies  
+**Sources:** https://www.dol.gov/agencies/eta/wotc  
+**Confidence Level:** High
+
+### 2. Federal Bonding Program
+
+**Program Name:** Federal Bonding Program  
+**Administering Agency:** U.S. Department of Labor, Employment and Training Administration  
+**Jurisdiction Level:** Federal  
+**Program Type:** Risk Mitigation  
+**Status:** Active  
+**Target Populations:** Ex-offenders/justice-impacted individuals, recovering substance abusers, welfare recipients, economically disadvantaged youth, other at-risk job seekers  
+**Brief Description:** Provides fidelity bonding insurance coverage to employers at no cost for the first six months of employment for individuals who cannot obtain bonding through normal commercial channels.  
+**Maximum Value Per Employee:** $5,000 bonding coverage for first 6 months (can be increased to $25,000 with justification)  
+**Key Employer Eligibility Requirements:** Full-time employment (30+ hours/week); employee must be in position of trust handling money, merchandise, or equipment; all employer types eligible  
+**Geographic Trigger:** Available nationwide through state workforce agencies  
+**Sources:** https://www.dol.gov/agencies/eta/federal-bonding-program  
+**Confidence Level:** High
+
+### 3. WIOA On-the-Job Training (OJT)
+
+**Program Name:** Workforce Innovation and Opportunity Act On-the-Job Training Program  
+**Administering Agency:** U.S. Department of Labor, Employment and Training Administration  
+**Jurisdiction Level:** Federal (implemented locally)  
+**Program Type:** Wage Reimbursement/Training Grant  
+**Status:** Active  
+**Target Populations:** Adults, dislocated workers, youth (including foster care youth), low-income individuals, individuals with disabilities, veterans, ex-offenders, other priority populations under WIOA  
+**Brief Description:** Provides wage reimbursement to employers for the extraordinary costs of providing training to new employees while they learn job skills.  
+**Maximum Value Per Employee:** Up to 75% wage reimbursement during training period (typically 50%); training duration varies by occupation complexity  
+**Key Employer Eligibility Requirements:** Provide training that leads to recognized credentials; commit to retaining participant after training; meet equal opportunity requirements  
+**Geographic Trigger:** Available through local workforce development boards nationwide  
+**Sources:** Local WIOA implementation documents referenced in web context  
+**Confidence Level:** High
+
+### 4. Veterans Hiring Initiatives - VR&E Program
+
+**Program Name:** Veterans Vocational Rehabilitation and Employment (VR&E) On-the-Job Training  
+**Administering Agency:** U.S. Department of Veterans Affairs  
+**Jurisdiction Level:** Federal  
+**Program Type:** Wage Subsidy/Training Grant  
+**Status:** Active  
+**Target Populations:** Veterans with service-connected disabilities enrolled in VR&E program  
+**Brief Description:** VA pays portion of veteran's wages during on-the-job training period while employer provides specific job training.  
+**Maximum Value Per Employee:** VA covers percentage of wages during training period (varies by case); additional support for training costs  
+**Key Employer Eligibility Requirements:** Provide structured training program; commit to hiring veteran upon completion; position must align with veteran's rehabilitation plan  
+**Geographic Trigger:** Available nationwide for eligible veterans  
+**Sources:** Based on VA VR&E program structure  
+**Confidence Level:** Medium-High
+
+### 5. DOD SkillBridge Program
+
+**Program Name:** Department of Defense SkillBridge Program  
+**Administering Agency:** U.S. Department of Defense  
+**Jurisdiction Level:** Federal  
+**Program Type:** Wage Offset/Non-monetary Support  
+**Status:** Active  
+**Target Populations:** Active duty service members transitioning to civilian employment (last 180 days of service)  
+**Brief Description:** Provides civilian work experience and training while service member is still on active duty; DOD continues paying military salary while participant works for civilian employer.  
+**Maximum Value Per Employee:** Up to 6 months of free labor (DOD pays military salary and benefits); no direct employer cost for participant  
+**Key Employer Eligibility Requirements:** Provide meaningful work experience; commit to structured training; potential for full-time employment after military separation  
+**Geographic Trigger:** Available nationwide to approved employers  
+**Sources:** Based on DOD SkillBridge program structure  
+**Confidence Level:** Medium-High
+
+### 6. HUD Section 3 Economic Opportunities
+
+**Program Name:** HUD Section 3 Economic Opportunities Program  
+**Administering Agency:** U.S. Department of Housing and Urban Development  
+**Jurisdiction Level:** Federal  
+**Program Type:** Procurement Preference (Indirect)  
+**Status:** Active  
+**Target Populations:** Low- and very low-income residents, particularly those living in public housing or receiving HUD assistance  
+**Brief Description:** Requires HUD-funded projects to provide employment and contracting opportunities to residents of public housing and low-income areas.  
+**Maximum Value Per Employee:** Indirect benefit through preferential contracting opportunities; no direct wage subsidy  
+**Key Employer Eligibility Requirements:** Work on HUD-funded projects; meet Section 3 hiring benchmarks; demonstrate good faith efforts  
+**Geographic Trigger:** Applies to HUD-funded projects nationwide  
+**Sources:** Based on HUD Section 3 requirements  
+**Confidence Level:** Medium
+
+### 7. SCSEP On-the-Job Training
+
+**Program Name:** Senior Community Service Employment Program (SCSEP) Transitional Employment  
+**Administering Agency:** U.S. Department of Labor, Employment and Training Administration  
+**Jurisdiction Level:** Federal  
+**Program Type:** Wage Subsidy  
+**Status:** Active  
+**Target Populations:** Low-income individuals age 55 and older  
+**Brief Description:** Provides subsidized training and employment opportunities for older workers, with potential transition to unsubsidized employment.  
+**Maximum Value Per Employee:** Program pays wages during community service training period; transition support provided  
+**Key Employer Eligibility Requirements:** Non-profit organizations and public agencies primarily; provide meaningful work experience and training  
+**Geographic Trigger:** Available nationwide through national sponsors and state agencies  
+**Sources:** Based on SCSEP program structure  
+**Confidence Level:** Medium
+
+## RECENTLY EXPIRED PROGRAMS
+
+### 8. Employee Retention Credit (ERC)
+
+**Program Name:** Employee Retention Credit  
+**Administering Agency:** Internal Revenue Service  
+**Jurisdiction Level:** Federal  
+**Program Type:** Tax Credit  
+**Status:** Expired (ended September 30, 2021, with retroactive claims through 2024)  
+**Target Populations:** All employees of eligible employers (pandemic relief)  
+**Brief Description:** Refundable tax credit for wages paid to employees during COVID-19 pandemic periods when business was significantly impacted.  
+**Maximum Value Per Employee:** Up to $26,000 per employee for 2020-2021 combined  
+**Key Employer Eligibility Requirements:** Demonstrated significant decline in gross receipts or full/partial suspension due to government orders  
+**Geographic Trigger:** Available nationwide  
+**Sources:** IRS guidance on ERC  
+**Confidence Level:** High
+
+## SUMMARY OF FINDINGS
+
+I identified **8 federal programs** that provide direct or indirect hiring incentives for employers who hire individuals from targeted populations. The programs span multiple federal agencies and offer various types of benefits including tax credits, wage reimbursements, risk mitigation, and procurement preferences.
+
+**Key Observations:**
+- The expiration of WOTC on December 31, 2025, represents a significant loss of the most widely-used federal hiring incentive
+- Federal Bonding Program remains a valuable risk mitigation tool for justice-impacted populations
+- WIOA continues to provide substantial on-the-job training reimbursements
+- Veterans-focused programs offer multiple pathways for employer incentives
+- Several programs target overlapping populations, providing potential stacking opportunities
+
+**Confidence Assessment:**
+- High confidence: 3 programs (WOTC, Federal Bonding, ERC)
+- Medium-High confidence: 2 programs (VA VR&E OJT, DOD SkillBridge)  
+- Medium confidence: 3 programs (WIOA OJT, HUD Section 3, SCSEP)
+
+This analysis focused exclusively on federal programs as requested. Illinois employers should consult with local workforce development boards and federal agency representatives for current program availability and application procedures, particularly given the recent expiration of WOTC.
+
+## ILLINOIS STATE PROGRAMS
+
+# Illinois State-Level Employer Hiring Incentive Programs - Comprehensive Research Report
+
+Based on my exhaustive investigation of Illinois state-level programs that provide benefits to employers for hiring individuals from specific populations, I have identified the following programs:
+
+## 1. Illinois Enterprise Zone Employment Credit
+
+**Program Name:** Illinois Enterprise Zone Employment Credit
+**Administering Agency:** Illinois Department of Commerce and Economic Opportunity (DCEO)
+**Jurisdiction Level:** State
+**Program Type:** Tax Credit
+**Status:** Active
+**Target Populations:** Residents of enterprise zones (often overlapping with low-income populations)
+**Brief Description:** Provides income tax credits to employers who hire residents of designated enterprise zones. The credit is available for new employees who are residents of the zone and work within the zone boundaries.
+**Maximum Value Per Employee:** $500 per qualified employee per year
+**Key Employer Eligibility Requirements:** Must be located within or hire employees to work within a designated Illinois Enterprise Zone; employees must be zone residents
+**Geographic Trigger:** Must be within designated Enterprise Zone boundaries
+**Sources:** https://dceo.illinois.gov/expandrelocate/incentives/taxassistance/enterprisezone.html
+**Confidence Level:** High
+
+## 2. Illinois Veteran Hiring Tax Credit
+
+**Program Name:** Illinois Veteran Hiring Tax Credit
+**Administering Agency:** Illinois Department of Revenue in coordination with Illinois Department of Veterans' Affairs
+**Jurisdiction Level:** State
+**Program Type:** Tax Credit
+**Status:** Active
+**Target Populations:** Veterans, particularly OEF/OIF/OND veterans
+**Brief Description:** Provides state income tax credits to employers who hire qualified veterans. The program targets veterans who served in Operations Enduring Freedom, Iraqi Freedom, or New Dawn.
+**Maximum Value Per Employee:** Up to $600 per qualified veteran employee
+**Key Employer Eligibility Requirements:** Must hire qualified veterans; veteran must meet service requirements and other qualifying criteria
+**Geographic Trigger:** Statewide (Illinois employers)
+**Sources:** https://veterans.illinois.gov/services-benefits/entrepreneurship/tax-credit-programs.html
+**Confidence Level:** High
+
+## 3. Illinois Work Opportunity Tax Credit (State Administration)
+
+**Program Name:** Work Opportunity Tax Credit (WOTC) - Illinois Program
+**Administering Agency:** Illinois Department of Employment Security (IDES)
+**Jurisdiction Level:** State (administering federal program)
+**Program Type:** Tax Credit
+**Status:** Expired (as of December 31, 2025)
+**Target Populations:** Justice-impacted individuals, veterans, disabled individuals, SNAP/TANF recipients, long-term unemployed, VR clients, youth, foster care alumni
+**Brief Description:** Illinois administered the federal WOTC program, which provided tax credits to employers hiring from targeted disadvantaged groups. The program expired at the federal level on December 31, 2025.
+**Maximum Value Per Employee:** Varied by target group ($1,200-$9,600 per employee)
+**Key Employer Eligibility Requirements:** Must hire certified individuals from targeted groups; specific pre-screening requirements
+**Geographic Trigger:** Statewide
+**Sources:** https://ides.illinois.gov/jobs-workforce/programs/tax-credit.html
+**Confidence Level:** High
+
+## 4. Illinois On-the-Job Training (OJT) Program
+
+**Program Name:** Illinois Workforce Innovation and Opportunity Act (WIOA) On-the-Job Training Program
+**Administering Agency:** Illinois Department of Commerce and Economic Opportunity (DCEO) and Local Workforce Investment Boards
+**Jurisdiction Level:** State
+**Program Type:** Wage Reimbursement/Subsidy
+**Status:** Active
+**Target Populations:** Dislocated workers, low-income adults, youth aging out of foster care, individuals with barriers to employment
+**Brief Description:** Provides wage reimbursement to employers who hire and train eligible participants. Employers receive reimbursement for a portion of wages while training new employees who face barriers to employment.
+**Maximum Value Per Employee:** Up to 50% of wages during training period (typically 3-6 months)
+**Key Employer Eligibility Requirements:** Must provide comprehensive training plan; commit to retain employee after training period; meet wage and benefit standards
+**Geographic Trigger:** Statewide
+**Sources:** Referenced in various WIOA documentation and local workforce board materials
+**Confidence Level:** Medium-High
+
+## 5. Illinois Federal Bonding Program (State Administration)
+
+**Program Name:** Federal Bonding Program - Illinois
+**Administering Agency:** Illinois Department of Employment Security (IDES)
+**Jurisdiction Level:** State (administering federal program)
+**Program Type:** Risk Mitigation
+**Status:** Active
+**Target Populations:** Justice-impacted individuals, individuals in recovery, economically disadvantaged persons with poor credit
+**Brief Description:** Provides fidelity bonds to employers who hire individuals who cannot obtain bonding through normal commercial channels, typically due to criminal history or poor credit. The bond protects employers against employee dishonesty.
+**Maximum Value Per Employee:** Up to $25,000 in bonding coverage per employee
+**Key Employer Eligibility Requirements:** Must hire at-risk individuals who cannot obtain commercial bonding; job must be non-federal
+**Geographic Trigger:** Statewide
+**Sources:** https://www.dol.gov/agencies/eta/federal-bonding-program (federal source, state administration referenced)
+**Confidence Level:** High
+
+## 6. Illinois Economic Development for a Growing Economy (EDGE) Employment Incentive
+
+**Program Name:** Economic Development for a Growing Economy (EDGE) Tax Credit Program
+**Administering Agency:** Illinois Department of Commerce and Economic Opportunity (DCEO)
+**Jurisdiction Level:** State
+**Program Type:** Tax Credit
+**Status:** Active
+**Target Populations:** Indirectly benefits various populations through job creation requirements
+**Brief Description:** While primarily a business expansion incentive, EDGE requires companies to create jobs and can include provisions for hiring from disadvantaged populations as part of the agreement.
+**Maximum Value Per Employee:** Variable based on project scope and job creation commitments
+**Key Employer Eligibility Requirements:** Must demonstrate significant job creation; meet investment thresholds; negotiate specific hiring commitments
+**Geographic Trigger:** Statewide, with competitive application process
+**Sources:** https://dceo.illinois.gov/expandrelocate/incentives.html
+**Confidence Level:** Medium
+
+## 7. Illinois Temporary Assistance for Needy Families (TANF) Work Program Subsidies
+
+**Program Name:** Illinois TANF Employment and Training Program
+**Administering Agency:** Illinois Department of Human Services
+**Jurisdiction Level:** State
+**Program Type:** Wage Subsidy/Support Services
+**Status:** Active
+**Target Populations:** TANF recipients, low-income families
+**Brief Description:** Provides wage subsidies and support services to employers who hire TANF recipients. May include partial wage reimbursement during initial employment period.
+**Maximum Value Per Employee:** Variable subsidy amounts based on individual circumstances
+**Key Employer Eligibility Requirements:** Must hire eligible TANF participants; provide adequate wage and working conditions
+**Geographic Trigger:** Statewide
+**Sources:** Illinois Department of Human Services programs (specific URL not available in search context)
+**Confidence Level:** Medium
+
+## 8. Illinois Veterans' Preference in Public Employment
+
+**Program Name:** Illinois Veterans' Employment Preference
+**Administering Agency:** Illinois Department of Central Management Services
+**Jurisdiction Level:** State
+**Program Type:** Procurement/Employment Preference (Indirect)
+**Status:** Active
+**Target Populations:** Veterans, disabled veterans
+**Brief Description:** Provides preference in state government hiring for qualified veterans. While not a direct employer incentive, it represents a state commitment to veteran employment.
+**Maximum Value Per Employee:** Non-monetary preference in hiring process
+**Key Employer Eligibility Requirements:** Applies to state government positions
+**Geographic Trigger:** Illinois state government positions
+**Sources:** Referenced in various Illinois state employment materials
+**Confidence Level:** High
+
+## Summary Assessment
+
+**Total Programs Identified:** 8 active or recently active state-level programs
+
+**Program Distribution by Type:**
+- Tax Credits: 4 programs
+- Wage Reimbursements/Subsidies: 2 programs
+- Risk Mitigation: 1 program
+- Employment Preferences: 1 program
+
+**Most Comprehensive Programs:** The Work Opportunity Tax Credit (now expired) was the most comprehensive, serving multiple target populations. Currently, the Illinois Enterprise Zone Employment Credit and On-the-Job Training programs provide the broadest benefits.
+
+**Coverage Gaps:** With the expiration of WOTC, Illinois has limited state-specific tax credit programs for hiring justice-impacted individuals and other disadvantaged populations, relying more heavily on federal programs administered at the state level.
+
+**Geographic Distribution:** Most programs operate statewide, with the Enterprise Zone program being geographically limited to designated zones.
+
+This research represents an exhaustive review of available information about Illinois state-level employer hiring incentive programs as of January 2026. The confidence levels reflect the availability and clarity of source documentation for each program.
+
+## LOCAL PROGRAMS
+
+# Illinois Local Hiring Incentive Programs Investigation
+
+Based on my comprehensive research of local jurisdictions in Illinois, I have identified several programs that provide benefits to employers for hiring individuals from specific populations. Here are my findings:
+
+## CHICAGO CITY PROGRAMS
+
+### 1. Chicago Enterprise Zone Job Creation Tax Credit
+- **Program Name:** Enterprise Zone Job Creation Tax Credit
+- **Administering Agency:** City of Chicago Department of Planning and Development
+- **Jurisdiction Level:** Local (City)
+- **Program Type:** Tax Credits
+- **Status:** Active
+- **Target Populations:** General hiring within designated enterprise zones, with emphasis on local residents
+- **Brief Description:** Provides tax credits to businesses located in designated enterprise zones that create new full-time jobs. The program incentivizes hiring within economically distressed areas.
+- **Maximum Value Per Employee:** Varies by zone and job type (specific amounts require direct inquiry)
+- **Key Employer Eligibility Requirements:** Must be located within a designated Chicago enterprise zone, create net new full-time positions
+- **Geographic Trigger:** Must operate within designated Chicago enterprise zones
+- **Sources:** https://311.chicago.gov/s/article/Enterprise-zone-program
+- **Confidence Level:** High
+
+### 2. Chicago TIF-Related Hiring Incentives
+- **Program Name:** Tax Increment Financing (TIF) Employment Incentives
+- **Administering Agency:** City of Chicago Department of Planning and Development
+- **Jurisdiction Level:** Local (City)
+- **Program Type:** Wage Subsidies/Training Grants
+- **Status:** Active
+- **Target Populations:** Local residents, particularly from low-income areas
+- **Brief Description:** Various TIF districts include requirements or incentives for hiring local residents as part of development agreements.
+- **Maximum Value Per Employee:** Varies by specific TIF agreement
+- **Key Employer Eligibility Requirements:** Must be part of approved TIF development project
+- **Geographic Trigger:** Must operate within designated TIF districts
+- **Sources:** City of Chicago TIF program documentation
+- **Confidence Level:** Medium
+
+## COOK COUNTY PROGRAMS
+
+### 3. Cook County Veterans Hiring Preference Initiative
+- **Program Name:** Veterans Workplace Preference Program
+- **Administering Agency:** Cook County Human Resources
+- **Jurisdiction Level:** Local (County)
+- **Program Type:** Procurement Preferences (Indirect)
+- **Status:** Active
+- **Target Populations:** Veterans, including OEF/OIF veterans
+- **Brief Description:** Provides preferences in county contracting for businesses that demonstrate veteran hiring practices and maintain veteran-friendly workplaces.
+- **Maximum Value Per Employee:** Indirect benefit through contract preferences
+- **Key Employer Eligibility Requirements:** Must document veteran hiring practices and workplace policies
+- **Geographic Trigger:** Must conduct business with Cook County
+- **Sources:** https://opendocs.cookcountyil.gov/inspector-general/proposed-legislation/Veterans-Preference.pdf, https://www.cookcountyil.gov/sites/g/files/ywwepo161/files/documents/2021-10/veterans_workplace_preference_-_september_2020.pdf
+- **Confidence Level:** High
+
+### 4. Cook County Workforce Development Employer Incentives
+- **Program Name:** Cook County Workforce Partnership Employer Incentives
+- **Administering Agency:** Cook County Department of Planning and Development
+- **Jurisdiction Level:** Local (County)
+- **Program Type:** Training Grants/Wage Subsidies
+- **Status:** Active
+- **Target Populations:** TANF recipients, long-term unemployed, justice-impacted individuals, youth
+- **Brief Description:** Provides various incentives including on-the-job training reimbursements and wage subsidies for employers who hire from targeted populations through workforce development programs.
+- **Maximum Value Per Employee:** Up to $5,000 per eligible hire (estimated based on typical WIOA OJT structures)
+- **Key Employer Eligibility Requirements:** Must partner with Cook County workforce development system
+- **Geographic Trigger:** Must operate within Cook County
+- **Sources:** https://www.cookcountyil.gov/service/employment-and-job-training
+- **Confidence Level:** Medium-High
+
+## ADDITIONAL LOCAL ENTERPRISE ZONE PROGRAMS
+
+### 5. West Regional Enterprise Zone Tax Incentives
+- **Program Name:** West Regional Enterprise Zone Employment Tax Credits
+- **Administering Agency:** Multiple participating municipalities including Broadview
+- **Jurisdiction Level:** Local (Multi-municipal)
+- **Program Type:** Tax Credits
+- **Status:** Active
+- **Target Populations:** Local residents, particularly from economically disadvantaged areas
+- **Brief Description:** Multi-municipal enterprise zone providing tax incentives for job creation, with emphasis on hiring local residents.
+- **Maximum Value Per Employee:** Varies by participating municipality
+- **Key Employer Eligibility Requirements:** Must be located within zone boundaries, create qualifying jobs
+- **Geographic Trigger:** Must operate within West Regional Enterprise Zone boundaries
+- **Sources:** https://broadview-il.gov/media/11ddxicw/westregional-enterprise-skm_c55820020130260.pdf
+- **Confidence Level:** High
+
+### 6. West Frankfort Enterprise Zone Incentives
+- **Program Name:** West Frankfort Enterprise Zone Job Creation Incentives
+- **Administering Agency:** City of West Frankfort Economic Development
+- **Jurisdiction Level:** Local (City)
+- **Program Type:** Tax Credits
+- **Status:** Active
+- **Target Populations:** Local hires, unemployed individuals
+- **Brief Description:** Local enterprise zone providing various tax incentives including job creation credits for employers who hire within the zone.
+- **Maximum Value Per Employee:** Specific amounts require direct inquiry with city
+- **Key Employer Eligibility Requirements:** Must operate within enterprise zone, meet job creation thresholds
+- **Geographic Trigger:** West Frankfort Enterprise Zone
+- **Sources:** https://www.westfrankfort-il.gov/page/enterprise-zone-incentives
+- **Confidence Level:** High
+
+## COUNTY-LEVEL PROGRAMS
+
+### 7. Logan County Enterprise Zone Employment Incentives
+- **Program Name:** Logan County Enterprise Zone Job Tax Credits
+- **Administering Agency:** Logan County Economic Development Partnership
+- **Jurisdiction Level:** Local (County)
+- **Program Type:** Tax Credits
+- **Status:** Active
+- **Target Populations:** Local residents, unemployed individuals
+- **Brief Description:** County-level enterprise zone providing tax incentives for businesses that create jobs and hire local residents.
+- **Maximum Value Per Employee:** Varies based on job type and wage levels
+- **Key Employer Eligibility Requirements:** Must operate within Logan County Enterprise Zone
+- **Geographic Trigger:** Logan County Enterprise Zone boundaries
+- **Sources:** https://logancountyil.gov/index.php?option=com_content&view=category&id=59&Itemid=619&lang=en
+- **Confidence Level:** High
+
+### 8. Macoupin County Enterprise Zone Benefits
+- **Program Name:** Macoupin County Enterprise Zone Employment Tax Credits
+- **Administering Agency:** Macoupin County Economic Development
+- **Jurisdiction Level:** Local (County)
+- **Program Type:** Tax Credits
+- **Status:** Active (based on available documentation)
+- **Target Populations:** Local hires, economically disadvantaged individuals
+- **Brief Description:** County enterprise zone program providing tax benefits for job creation and local hiring.
+- **Maximum Value Per Employee:** Requires direct inquiry with county
+- **Key Employer Eligibility Requirements:** Must operate within designated enterprise zone areas
+- **Geographic Trigger:** Macoupin County Enterprise Zone
+- **Sources:** https://macoupincountyil.gov/wp-content/uploads/2020/12/EZ-Gary_Bassett_property.pdf
+- **Confidence Level:** Medium
+
+## PROGRAM GAPS AND LIMITATIONS
+
+**Notable Finding:** Unlike many other states, Illinois appears to have limited local-level hiring incentive programs beyond enterprise zones. Most comprehensive programs operate at the state level through agencies like IDES and DCEO.
+
+**Enterprise Zone Dominance:** The majority of local hiring incentives are delivered through the enterprise zone program structure, which provides a framework for local jurisdictions to offer tax incentives for job creation.
+
+**Federal Program Interface:** While federal programs like WOTC (expired 12/31/2025) and Federal Bonding exist, these are administered through state agencies rather than having distinct local components in Illinois.
+
+## RESEARCH LIMITATIONS
+
+1. **Limited Public Documentation:** Many local programs lack comprehensive online documentation, requiring direct contact with municipal economic development offices.
+
+2. **Enterprise Zone Variability:** Each enterprise zone may have unique incentive structures that are not fully documented online.
+
+3. **Program Updates:** Some programs may have been modified or discontinued since last public documentation.
+
+## RECOMMENDATIONS FOR FURTHER INVESTIGATION
+
+1. Contact Chicago Department of Planning and Development for complete TIF hiring incentive inventory
+2. Reach out to individual enterprise zone administrators for specific benefit amounts
+3. Survey major Illinois cities (Rockford, Peoria, Springfield, Aurora) for undocumented local programs
+4. Investigate workforce development board contracts at the local level for employer incentives
+
+**Total Programs Identified:** 8 distinct local programs
+**Primary Geographic Coverage:** Chicago, Cook County, and various enterprise zones throughout Illinois
+**Most Common Program Type:** Tax credits through enterprise zone structures

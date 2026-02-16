@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incentive Agent Architecture Documentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            font-size: 2em;
+        }
+        h3 {
+            color: #555;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        h4 {
+            color: #666;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Courier New", monospace;
+            font-size: 0.9em;
+            color: #e83e8c;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        blockquote {
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+        }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        .toc li {
+            margin-bottom: 5px;
+        }
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #ecf0f1;
+            margin: 30px 0;
+        }
+        .mermaid {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Incentive Agent Architecture Documentation</h1>
+        
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#system-overview">2. System Overview</a></li>
+                <li><a href="#core-philosophy">3. Core Philosophy</a></li>
+                <li><a href="#7-phase-pipeline">4. 7-Phase Pipeline</a></li>
+                <li><a href="#agent-catalog">5. Agent Catalog</a></li>
+                <li><a href="#prompt-library">6. Prompt Library</a></li>
+                <li><a href="#data-structures">7. Data Structures</a></li>
+                <li><a href="#decision-trees--logic">8. Decision Trees & Logic</a></li>
+                <li><a href="#external-dependencies">9. External Dependencies</a></li>
+                <li><a href="#file-structure">10. File Structure</a></li>
+                <li><a href="#metrics--evaluation">11. Metrics & Evaluation</a></li>
+                <li><a href="#configuration">12. Configuration</a></li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2 id="introduction">Introduction</h2>
+        <p>The Incentive Agent is a multi-agent AI system designed to discover, verify, classify, and catalog employer hiring incentive programs across all U.S. states. The system uses Claude AI models (Haiku and Sonnet) combined with web search (Tavily API) to build comprehensive databases of programs that provide financial benefits to employers for hiring specific populations.</p>
+
+        <h3>Key Capabilities</h3>
+        <ul>
+            <li><strong>Discovery</strong>: Finds programs through landscape mapping and population-specific searches</li>
+            <li><strong>Verification</strong>: Validates program existence, status, and details</li>
+            <li><strong>Classification</strong>: Categorizes programs by benefit type and status</li>
+            <li><strong>Deduplication</strong>: Identifies and merges duplicate entries</li>
+            <li><strong>Gap Analysis</strong>: Identifies missing programs and coverage gaps</li>
+            <li><strong>Database Construction</strong>: Generates multi-sheet Excel databases and CSV exports</li>
+        </ul>
+
+        <hr>
+
+        <h2 id="system-overview">System Overview</h2>
+        <p>For detailed architecture diagrams and component interactions, see the <a href="ARCHITECTURE.md">Markdown version</a> of this document, which includes Mermaid diagrams that render properly in Markdown viewers.</p>
+
+        <div class="note">
+            <strong>Note:</strong> The HTML version provides a styled view of the documentation. For the complete documentation with interactive diagrams, refer to <code>ARCHITECTURE.md</code> which can be viewed in any Markdown viewer that supports Mermaid diagrams (GitHub, VS Code, etc.).
+        </div>
+
+        <hr>
+
+        <h2 id="core-philosophy">Core Philosophy</h2>
+        <h3>"Cast Wide Net, Filter Later"</h3>
+        <p>The discovery phase prioritizes <strong>MAXIMUM RECALL</strong> over precision. The system finds EVERYTHING, including:</p>
+        <ul>
+            <li>"Duds" (non-incentives, duplicates, expired programs, hallucinations)</li>
+            <li>Programs with incomplete information</li>
+            <li>Programs with low confidence</li>
+        </ul>
+        <p><strong>Filtering and classification happen in later phases</strong> (Verification, Classification, Deduplication).</p>
+
+        <hr>
+
+        <h2 id="7-phase-pipeline">7-Phase Pipeline</h2>
+        <p>The complete workflow consists of 7 phases plus a Federal Program Trinity search phase. See <code>ARCHITECTURE.md</code> for detailed phase descriptions and workflow diagrams.</p>
+
+        <hr>
+
+        <h2 id="agent-catalog">Agent Catalog</h2>
+        <p>Complete agent documentation including models, temperatures, methods, and dependencies is available in <code>ARCHITECTURE.md</code>.</p>
+
+        <hr>
+
+        <h2 id="prompt-library">Prompt Library</h2>
+        <p>All prompts used by each agent are documented in <code>ARCHITECTURE.md</code> with their complete text and locations in the codebase.</p>
+
+        <hr>
+
+        <h2 id="data-structures">Data Structures</h2>
+        <p>Complete data structure definitions including <code>MentalModel</code>, <code>PopulationProgram</code>, <code>ClassificationResult</code>, <code>GapAnalysisResult</code>, and <code>LandscapeResult</code> are documented in <code>ARCHITECTURE.md</code>.</p>
+
+        <hr>
+
+        <h2 id="decision-trees--logic">Decision Trees & Logic</h2>
+        <p>Decision trees for benefit classification, duplicate detection, employer benefit determination, coverage score calculation, and stop conditions are documented in <code>ARCHITECTURE.md</code> with Mermaid diagrams.</p>
+
+        <hr>
+
+        <h2 id="external-dependencies">External Dependencies</h2>
+        <h3>Tavily API</h3>
+        <p>Web search for program discovery and URL enrichment. API key required in <code>.env</code> as <code>TAVILY_API_KEY</code>.</p>
+
+        <h3>Anthropic API (Claude)</h3>
+        <p>Primary AI models for discovery and classification. API key required in <code>.env</code> as <code>ANTHROPIC_API_KEY</code>.</p>
+
+        <h3>Golden Dataset</h3>
+        <p>Reference dataset for deduplication and URL matching. Located at <code>agents/Golden_Dataset.xlsx</code>.</p>
+
+        <hr>
+
+        <h2 id="file-structure">File Structure</h2>
+        <p>Complete file structure and output file naming conventions are documented in <code>ARCHITECTURE.md</code>.</p>
+
+        <hr>
+
+        <h2 id="metrics--evaluation">Metrics & Evaluation</h2>
+        <h3>Coverage Completeness vs Discovery Rate</h3>
+        <p><strong>Coverage Completeness (0-100%):</strong> Measures how well the programs you found cover expected categories. Does NOT compare to golden dataset.</p>
+        <p><strong>Discovery Rate:</strong> Measures how many programs you found vs. how many exist in the golden dataset.</p>
+        <p>See <code>ARCHITECTURE.md</code> for detailed formulas and examples.</p>
+
+        <hr>
+
+        <h2 id="configuration">Configuration</h2>
+        <h3>Environment Variables</h3>
+        <ul>
+            <li><code>ANTHROPIC_API_KEY</code>: Claude API key (required)</li>
+            <li><code>TAVILY_API_KEY</code>: Tavily API key (optional but recommended)</li>
+            <li><code>GOLDEN_DATASET_PATH</code>: Path to Golden Dataset (optional, default: <code>agents/Golden_Dataset.xlsx</code>)</li>
+        </ul>
+
+        <hr>
+
+        <div class="note">
+            <p><strong>For Complete Documentation:</strong> This HTML version provides a styled overview. For the complete documentation with all details, diagrams, prompts, and code examples, please refer to <a href="ARCHITECTURE.md">ARCHITECTURE.md</a>.</p>
+        </div>
+
+        <hr>
+
+        <p><em>Last Updated: January 29, 2026</em></p>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,30 @@
+
+============================================================
+DATABASE SUMMARY
+============================================================
+
+Total Programs: 42
+
+BY STATUS:
+  ACTIVE (usable):      25
+  FEDERAL:              10
+  DUPLICATE:            0
+  EXPIRED:              0
+  NON-INCENTIVE:        6
+  MISSING-LINK:         0
+  HALLUCINATION:        1
+
+USABLE PROGRAMS: 35
+
+COVERAGE SCORE: 95.0%
+
+GAPS IDENTIFIED: 40
+  - [MODERATE] No training_grant programs found
+  - [MODERATE] Program 'Illinois Veterans Tax Credit' has verification issues: Government program (state) has non-.gov URL
+  - [MODERATE] Program 'Illinois Hires Heroes Consortium' has verification issues: Low confidence in program existence
+
+RECOMMENDATIONS:
+  - Search for missing program types: training_grant
+  - Resolve 39 verification issues (missing URLs, low confidence)
+
+============================================================
