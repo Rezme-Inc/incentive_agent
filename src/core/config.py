@@ -39,6 +39,9 @@ class Settings(BaseSettings):
     cache_ttl_county: int = 14
     cache_ttl_city: int = 7
 
+    # Database
+    database_path: str = "data/programs.db"
+
     # Demo Mode
     demo_mode: bool = False
 

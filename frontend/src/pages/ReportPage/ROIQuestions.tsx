@@ -37,9 +37,9 @@ export const ROIQuestions = ({ sessionId, onAnswersSubmitted }: ROIQuestionsProp
   };
 
   const handleSubmit = async () => {
-    // Validate required fields
+    // Validate required fields - check for undefined/null/empty string, but allow 0
     const missingRequired = questions.filter(
-      (q) => q.required && !answers[q.id]
+      (q) => q.required && (answers[q.id] === undefined || answers[q.id] === null || answers[q.id] === '')
     );
     if (missingRequired.length > 0) {
       setError(`Please answer all required questions: ${missingRequired.map(q => q.question).join(', ')}`);
@@ -99,28 +99,38 @@ export const ROIQuestions = ({ sessionId, onAnswersSubmitted }: ROIQuestionsProp
       {Object.entries(questionsByProgram).map(([programId, programQuestions]) => (
         <div key={programId} className="bg-white rounded-lg shadow-md p-6">
           <h4 className="text-md font-semibold text-gray-900 mb-4">
-            Program: {programQuestions[0]?.program_id || programId}
+            {programQuestions[0]?.program_name || programId}
           </h4>
           <div className="space-y-4">
             {programQuestions.map((question) => (
-              <div key={question.id}>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+              <div key={question.id} className="relative">
+                <label 
+                  htmlFor={`question-${question.id}`}
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
                   {question.question}
                   {question.required && <span className="text-red-500 ml-1">*</span>}
                 </label>
                 {question.type === 'number' && (
                   <input
+                    id={`question-${question.id}`}
                     type="number"
-                    value={answers[question.id] || ''}
-                    onChange={(e) => handleAnswerChange(question.id, parseFloat(e.target.value) || 0)}
+                    value={answers[question.id] ?? ''}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      // Allow empty string, only parse if there's a value
+                      const numValue = value === '' ? '' : (parseFloat(value) || 0);
+                      handleAnswerChange(question.id, numValue);
+                    }}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                     required={question.required}
                   />
                 )}
                 {question.type === 'text' && (
                   <input
+                    id={`question-${question.id}`}
                     type="text"
-                    value={answers[question.id] || ''}
+                    value={answers[question.id] ?? ''}
                     onChange={(e) => handleAnswerChange(question.id, e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                     required={question.required}
@@ -128,7 +138,8 @@ export const ROIQuestions = ({ sessionId, onAnswersSubmitted }: ROIQuestionsProp
                 )}
                 {question.type === 'select' && question.options && (
                   <select
-                    value={answers[question.id] || ''}
+                    id={`question-${question.id}`}
+                    value={answers[question.id] ?? ''}
                     onChange={(e) => handleAnswerChange(question.id, e.target.value)}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
                     required={question.required}

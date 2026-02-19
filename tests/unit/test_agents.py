@@ -44,11 +44,11 @@ class TestValidationNodes:
 
     @pytest.mark.asyncio
     async def test_join_node_deduplicates(self, sample_state):
-        """Test that join_node deduplicates programs"""
+        """Test that join_node deduplicates programs (fuzzy match)"""
         sample_state["programs"] = [
-            {"program_name": "WOTC", "id": "1"},
-            {"program_name": "wotc", "id": "2"},  # Duplicate (case insensitive)
-            {"program_name": "Federal Bonding", "id": "3"}
+            {"program_name": "WOTC", "id": "1", "government_level": "federal", "confidence": "high", "description": ""},
+            {"program_name": "wotc", "id": "2", "government_level": "federal", "confidence": "low", "description": ""},
+            {"program_name": "Federal Bonding", "id": "3", "government_level": "federal", "confidence": "high", "description": ""}
         ]
 
         result = await join_node(sample_state)

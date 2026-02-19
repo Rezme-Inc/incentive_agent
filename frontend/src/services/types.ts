@@ -52,6 +52,7 @@ export interface DiscoverResponse {
 export interface ROIQuestion {
   id: string;
   program_id: string;
+  program_name?: string;
   question: string;
   type: 'number' | 'text' | 'select';
   options?: string[];

@@ -194,6 +194,10 @@ def route_to_discovery(state: IncentiveState) -> List[Send]:
     gov_levels = state.get("government_levels", ["federal", "state"])
     sends = []
 
+    print(f"\n{'='*60}")
+    print(f"[ROUTER] Dispatching discovery to levels: {gov_levels}")
+    print(f"[ROUTER] city={state.get('city_name')}, county={state.get('county_name')}, state={state.get('state_name')}")
+
     for level in gov_levels:
         node_arg = {
             "target_level": level,
@@ -208,5 +212,8 @@ def route_to_discovery(state: IncentiveState) -> List[Send]:
             node=f"{level}_discovery",
             arg=node_arg
         ))
+
+    print(f"[ROUTER] Created {len(sends)} Send objects: {[s.node for s in sends]}")
+    print(f"{'='*60}\n")
 
     return sends

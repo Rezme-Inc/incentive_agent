@@ -4,32 +4,75 @@ Validation agents - Join, Error Check, and Admin Notify
 from typing import Dict, Any, List
 from datetime import datetime
 
+from rapidfuzz import fuzz
+
 from .state import IncentiveState
+from src.core.cache import normalize_program_name
 
 
 async def join_node(state: IncentiveState) -> Dict[str, Any]:
     """
     Merge programs from all parallel discovery nodes.
     Programs are already accumulated via Annotated[List, add].
-    This node deduplicates by program name.
+
+    Uses fuzzy matching (rapidfuzz token_set_ratio >= 90) with
+    government_level guard to deduplicate without losing distinct programs.
     """
     programs = state.get("programs", [])
-
-    # Deduplicate by normalized program name
-    seen = set()
-    unique_programs = []
+    print(f"\n{'='*60}")
+    print(f"[JOIN] Received {len(programs)} programs from discovery nodes")
+    unique_programs: List[Dict[str, Any]] = []
 
     for prog in programs:
-        # Normalize name for comparison
-        name = prog.get("program_name", "").lower().strip()
-        if name and name not in seen:
-            seen.add(name)
+        name = normalize_program_name(prog.get("program_name", ""))
+        level = prog.get("government_level", "")
+        if not name:
+            continue
+
+        is_duplicate = False
+        for i, existing in enumerate(unique_programs):
+            existing_name = normalize_program_name(existing.get("program_name", ""))
+            existing_level = existing.get("government_level", "")
+
+            # Only merge within the same government level
+            if level != existing_level:
+                continue
+
+            score = fuzz.token_set_ratio(name, existing_name)
+            if score >= 90:
+                print(f"  [JOIN] DEDUP: '{prog.get('program_name')}' matches '{existing.get('program_name')}' (score={score})")
+                # Keep the better record
+                if _should_replace(existing, prog):
+                    unique_programs[i] = prog
+                is_duplicate = True
+                break
+
+        if not is_duplicate:
             unique_programs.append(prog)
+
+    deduped_count = len(programs) - len(unique_programs)
+    print(f"[JOIN] After dedup: {len(unique_programs)} unique ({deduped_count} duplicates removed)")
+    for p in unique_programs:
+        print(f"  - {p.get('program_name')} [{p.get('government_level')}]")
+    print(f"{'='*60}\n")
 
     return {
         "merged_programs": unique_programs,
         "current_phase": "join_complete"
     }
+
+
+def _should_replace(existing: Dict[str, Any], candidate: Dict[str, Any]) -> bool:
+    """Pick the richer / more trustworthy record."""
+    confidence_rank = {"high": 3, "medium": 2, "low": 1}
+    e_conf = confidence_rank.get(existing.get("confidence", "low"), 0)
+    c_conf = confidence_rank.get(candidate.get("confidence", "low"), 0)
+
+    if c_conf != e_conf:
+        return c_conf > e_conf
+
+    # Same confidence — prefer longer description
+    return len(candidate.get("description", "")) > len(existing.get("description", ""))
 
 
 async def error_checker_node(state: IncentiveState) -> Dict[str, Any]:

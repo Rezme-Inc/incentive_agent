@@ -1,4 +1,0 @@
-Action Type,Program ID,Program Name,Current Value,Recommended Action,Priority,Notes
-DELETE,TEMP-007,Illinois Veterans Tax Credit Programs,,DELETE - Do not include in final database,high,"No official source URL or statute citation provided, status marked as 'status_unclear'"
-FIX_VALUE,TEMP-003,WIOA On-the-Job Training (OJT) Contracts,None,Fix value to indicate variable reimbursement percentage,medium,"Maximum value per employee is not a fixed dollar amount, but rather a variable percentage of wages reimbursed"
-FIX_VALUE,TEMP-005,Illinois Credit for Wages Paid to Returning Citizens,None,Fix value to indicate variable amount requiring further research,medium,"Maximum value per employee is not specified, requires verification from current statute"

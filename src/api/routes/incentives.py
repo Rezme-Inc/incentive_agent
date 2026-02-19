@@ -285,11 +285,14 @@ async def submit_shortlist(session_id: str, request: ShortlistRequest):
         prog_id = prog.get("id", "unknown")
         benefit_type = prog.get("benefit_type", "")
 
+        prog_name = prog.get("program_name", "this program")
+
         # Base question for all programs
         questions.append({
             "id": f"{prog_id}_num_hires",
             "program_id": prog_id,
-            "question": f"For {prog.get('program_name', 'this program')}: How many employees from target populations do you plan to hire?",
+            "program_name": prog_name,
+            "question": f"For {prog_name}: How many employees from target populations do you plan to hire?",
             "type": "number",
             "required": True
         })
@@ -299,7 +302,8 @@ async def submit_shortlist(session_id: str, request: ShortlistRequest):
             questions.append({
                 "id": f"{prog_id}_avg_wage",
                 "program_id": prog_id,
-                "question": f"For {prog.get('program_name', 'this program')}: What is the average hourly wage?",
+                "program_name": prog_name,
+                "question": f"For {prog_name}: What is the average hourly wage?",
                 "type": "currency",
                 "required": True
             })

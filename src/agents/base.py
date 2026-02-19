@@ -17,7 +17,7 @@ class BaseAgent:
     def __init__(
         self,
         model: Optional[str] = None,
-        temperature: float = 0.7,
+        temperature: float = 0.3,
         max_tokens: int = 4096
     ):
         self.model = model or settings.claude_model

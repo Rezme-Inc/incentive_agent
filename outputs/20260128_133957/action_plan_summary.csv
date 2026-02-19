@@ -1,6 +1,0 @@
-Action Type,Program ID,Program Name,Current Value,Recommended Action,Priority,Notes
-DELETE,TEMP-007,Illinois Opportunity Returns Initiative,,DELETE - Do not include in final database,high,"No official source URL provided, status marked as 'status_unclear'"
-DELETE,TEMP-009,Illinois Apprenticeship Tax Credit,,DELETE - Do not include in final database,high,"No official source URL provided, status marked as 'status_unclear'"
-UPDATE_STATUS,TEMP-007,Illinois Opportunity Returns Initiative,status_unclear,Change to: inactive,high,Unable to verify program existence
-UPDATE_STATUS,TEMP-009,Illinois Apprenticeship Tax Credit,status_unclear,Change to: inactive,high,Unable to verify program existence
-FIX_VALUE,TEMP-005,VA Work-Study Program,None,Update value to include calculation formula,medium,"Opportunity cost listed as null, requires calculation formula"
