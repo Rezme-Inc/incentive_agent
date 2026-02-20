@@ -23,7 +23,6 @@ ENV/
 
 # Google Sheets credentials
 credentials.json
-*.json
 
 # SQLite cache
 data/*.db
