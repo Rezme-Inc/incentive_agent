@@ -27,6 +27,7 @@ from src.core.cache import (
 )
 from src.agents.base import BaseAgent
 from src.agents.state import DiscoveryNodeState
+from src.core.rate_limiter import rate_limiter
 
 # Retry constants
 MAX_RETRIES = 3
@@ -94,7 +95,7 @@ def _get_cache() -> Optional[ProgramCache]:
     if settings.demo_mode:
         return None
     if _cache is None:
-        _cache = ProgramCache(settings.database_path)
+        _cache = ProgramCache(db_path=settings.database_path, database_url=settings.database_url)
     return _cache
 
 
@@ -219,8 +220,15 @@ If no programs found, return empty array: []
             city_name=state.get("city_name", ""),
         )
 
-    async def _search_with_retry(self, query: str) -> List[Dict[str, Any]]:
+    async def _search_with_retry(self, query: str, session_id: str = "") -> List[Dict[str, Any]]:
         """Execute a single Exa search with exponential backoff retry."""
+        # Rate limit check
+        if session_id:
+            allowed, reason = rate_limiter.check_exa(session_id)
+            if not allowed:
+                print(f"  [{self.level}] Exa limit hit: {reason}")
+                return []
+
         results = []
         for attempt in range(MAX_RETRIES + 1):
             try:
@@ -236,6 +244,8 @@ If no programs found, return empty array: []
                         "title": r.title or "",
                         "content": r.text or "",
                     })
+                if session_id:
+                    rate_limiter.increment_exa(session_id)
                 print(f"  [{self.level}] Exa query: '{query}' → {len(results)} results")
                 return results
             except Exception as e:
@@ -252,10 +262,11 @@ If no programs found, return empty array: []
     async def search(self, state: DiscoveryNodeState) -> List[Dict[str, Any]]:
         """Search for programs at this government level using Exa"""
         queries = self._build_search_queries(state)
+        session_id = state.get("session_id", "")
         all_results = []
 
         for query in queries:
-            results = await self._search_with_retry(query)
+            results = await self._search_with_retry(query, session_id=session_id)
             all_results.extend(results)
             # Small delay between queries to avoid rate limits
             if queries.index(query) < len(queries) - 1:
@@ -284,6 +295,15 @@ If no programs found, return empty array: []
         chain = self.extraction_prompt | self.llm | JsonOutputParser()
 
         location_key = self._get_location_key(state)
+        session_id = state.get("session_id", "")
+
+        # Rate limit check for LLM
+        if session_id:
+            allowed, reason = rate_limiter.check_llm(session_id)
+            if not allowed:
+                print(f"  [{self.level}] LLM limit hit: {reason}")
+                return []
+
         print(f"  [{self.level}] Sending {len(search_results[:10])} snippets to Claude for extraction...")
 
         try:
@@ -294,6 +314,8 @@ If no programs found, return empty array: []
                 "industry_code": state.get("industry_code", "Unknown"),
                 "search_results": formatted_results
             })
+            if session_id:
+                rate_limiter.increment_llm(session_id)
 
             # Ensure we got a list back
             if not isinstance(programs, list):

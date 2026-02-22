@@ -19,6 +19,7 @@ from src.api.models.schemas import (
     ProgramResponse
 )
 from src.core.config import settings
+from src.core.rate_limiter import rate_limiter
 
 router = APIRouter(prefix="/incentives", tags=["incentives"])
 
@@ -150,6 +151,8 @@ async def run_discovery_workflow(session_id: str, request: DiscoverRequest):
         print(f"Discovery workflow error: {e}")
         import traceback
         traceback.print_exc()
+    finally:
+        rate_limiter.end_session(session_id)
 
 
 def _is_demo_mode(demo_param: Optional[bool]) -> bool:
@@ -169,6 +172,13 @@ async def discover_incentives(
     """Start incentive discovery for an address"""
     session_id = str(uuid.uuid4())
     use_demo = _is_demo_mode(demo)
+
+    # Rate limit check
+    if not use_demo:
+        allowed, reason = rate_limiter.can_start_session()
+        if not allowed:
+            raise HTTPException(status_code=429, detail=reason)
+        rate_limiter.start_session(session_id)
 
     # Initialize session
     sessions[session_id] = {

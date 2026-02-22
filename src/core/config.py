@@ -40,10 +40,17 @@ class Settings(BaseSettings):
     cache_ttl_city: int = 7
 
     # Database
-    database_path: str = "data/programs.db"
+    database_url: str = ""  # Postgres connection string (Supabase). If empty, falls back to SQLite.
+    database_path: str = "data/programs.db"  # SQLite path (local dev only)
 
     # Demo Mode
     demo_mode: bool = False
+
+    # Rate Limits (safety ceilings to prevent runaway costs)
+    max_concurrent_sessions: int = 5
+    max_sessions_per_day: int = 50
+    max_exa_queries_per_session: int = 20
+    max_llm_calls_per_session: int = 10
 
     # ROI Cycle
     max_roi_refinement_rounds: int = 3

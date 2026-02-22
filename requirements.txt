@@ -22,6 +22,9 @@ rapidfuzz>=3.0.0
 fastapi>=0.104.0
 uvicorn>=0.24.0
 
+# Database (Supabase Postgres)
+psycopg2-binary>=2.9.0
+
 # Optional: Google Sheets integration
 gspread>=5.12.0
 google-auth>=2.23.0

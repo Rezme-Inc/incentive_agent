@@ -52,7 +52,7 @@ def create_app() -> FastAPI:
         if not settings.demo_mode:
             from src.core.cache import ProgramCache
             from src.agents.discovery.government_level import FEDERAL_PROGRAMS
-            cache = ProgramCache(settings.database_path)
+            cache = ProgramCache(db_path=settings.database_path, database_url=settings.database_url)
             cache.seed_federal_programs(FEDERAL_PROGRAMS)
             stats = cache.get_stats()
             print(f"Program Cache: {stats['total_programs']} programs ({stats['by_level']})")
