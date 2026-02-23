@@ -367,8 +367,10 @@ If no programs found, return empty array: []
         3. Run Exa search + Claude extraction
         4. Fuzzy-merge extracted vs cached
         5. Persist results, bump miss_count for programs not re-found
-        6. Return merged set
+        6. Return merged set + discovery stats
         """
+        from datetime import datetime, timezone
+
         cache = _get_cache()
         location_key = self._get_location_key(state)
         ttl = _TTL_MAP.get(self.level, 30)
@@ -377,11 +379,40 @@ If no programs found, return empty array: []
         print(f"[{self.level.upper()}] Discovery START — location={location_name}, key={location_key}")
         print(f"{'='*60}")
 
+        # -- Stats tracking ---------------------------------------------------
+        stats = {
+            "level": self.level,
+            "jurisdiction": location_name,
+            "location_key": location_key,
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            # Dedup funnel (Ryan)
+            "raw_extracted": 0,
+            "exact_duplicates_skipped": 0,
+            "merged_with_existing": 0,
+            "new_programs_added": 0,
+            "programs_confirmed": 0,
+            "from_cache_floor": 0,
+            "total_returned": 0,
+            "confidence_breakdown": {"high": 0, "medium": 0, "low": 0},
+            # Cache efficiency (Jenny)
+            "cached_programs": 0,
+            "cache_fresh": 0,
+            "cache_stale": 0,
+            "cache_hit": False,
+            "search_performed": True,
+            "exa_queries_used": 0,
+            "llm_calls_used": 0,
+        }
+
         # -- Step 1: cached baseline ------------------------------------------
         all_cached: List[Dict[str, Any]] = []
         if cache:
             fresh, stale = cache.get_cached_programs(self.level, location_key, ttl)
             all_cached = fresh + stale
+            stats["cached_programs"] = len(all_cached)
+            stats["cache_fresh"] = len(fresh)
+            stats["cache_stale"] = len(stale)
+            stats["cache_hit"] = len(fresh) > 0
             print(f"  [{self.level}] Cache: {len(fresh)} fresh, {len(stale)} stale")
 
         # -- Step 2: hardcoded federal programs --------------------------------
@@ -400,8 +431,13 @@ If no programs found, return empty array: []
                     cache.upsert_program(prog, "federal", "federal")
 
         # -- Step 3: live search -----------------------------------------------
+        queries = self._build_search_queries(state)
+        stats["exa_queries_used"] = len(queries)
         search_results = await self.search(state)
         extracted = await self.extract_programs(search_results, state)
+        stats["raw_extracted"] = len(extracted)
+        if extracted:
+            stats["llm_calls_used"] = 1
 
         # -- Step 4: merge extracted with cache --------------------------------
         # result_programs keyed by cache_key to avoid duplicates
@@ -413,27 +449,41 @@ If no programs found, return empty array: []
             result_programs[prog["id"]] = prog
             found_keys.add(prog["id"])
 
+        # Build a set of cached keys for exact-match detection
+        cached_key_set = {c["cache_key"] for c in all_cached}
+
         # Merge each extracted program
         for prog in extracted:
             prog_key = prog["id"]  # already deterministic from extract_programs
 
-            # Check fuzzy match against cached programs
+            # Case 1: exact ID match (same normalized name = same deterministic hash)
+            if prog_key in cached_key_set or prog_key in result_programs:
+                stats["exact_duplicates_skipped"] += 1
+                found_keys.add(prog_key)
+                if cache and prog_key in cached_key_set:
+                    cache.confirm_program(prog_key)
+                    stats["programs_confirmed"] += 1
+                result_programs[prog_key] = prog
+                continue
+
+            # Case 2: fuzzy match against cached programs (different name, same program)
             match = fuzzy_match_program(prog, all_cached, threshold=80.0) if all_cached else None
             if match:
-                # Extracted program matches a cached one — confirm the cached version
                 cached_key = match["cache_key"]
                 found_keys.add(cached_key)
                 found_keys.add(prog_key)
                 if cache:
                     cache.confirm_program(cached_key)
-                # Use extracted version (it's fresh) but keep cached key for stability
+                stats["merged_with_existing"] += 1
+                stats["programs_confirmed"] += 1
                 prog["id"] = cached_key
                 result_programs[cached_key] = prog
             else:
-                # Genuinely new program — add to cache
+                # Case 3: genuinely new program — add to cache
                 found_keys.add(prog_key)
                 if cache:
                     cache.upsert_program(prog, self.level, location_key)
+                stats["new_programs_added"] += 1
                 result_programs[prog_key] = prog
 
         # Add cached programs not re-found (deterministic floor)
@@ -441,15 +491,29 @@ If no programs found, return empty array: []
             ckey = cached_prog["cache_key"]
             if ckey not in found_keys:
                 result_programs[ckey] = cached_prog
+                stats["from_cache_floor"] += 1
 
         # -- Step 5: persist miss_count ----------------------------------------
         if cache:
             cache.increment_miss_count(self.level, location_key, found_keys)
-            queries = self._build_search_queries(state)
             cache.log_search(self.level, location_key, queries, len(extracted))
 
         final_programs = list(result_programs.values())
+        stats["total_returned"] = len(final_programs)
+
+        # Confidence breakdown
+        for p in final_programs:
+            conf = p.get("confidence", "low")
+            if conf in stats["confidence_breakdown"]:
+                stats["confidence_breakdown"][conf] += 1
+
         print(f"  [{self.level}] RETURNING {len(final_programs)} programs to graph")
+        print(f"  [{self.level}] Stats: {stats['raw_extracted']} raw → "
+              f"{stats['exact_duplicates_skipped']} exact dupes, "
+              f"{stats['merged_with_existing']} merged, "
+              f"{stats['new_programs_added']} new, "
+              f"{stats['programs_confirmed']} confirmed, "
+              f"{stats['from_cache_floor']} from cache floor")
         for p in final_programs:
             print(f"    - {p.get('program_name', '?')} (id={p.get('id', '?')[:12]}..)")
         print(f"{'='*60}\n")
@@ -457,6 +521,7 @@ If no programs found, return empty array: []
         return {
             "programs": final_programs,
             "current_level": self.level,
+            "discovery_stats": [stats],
         }
 
 

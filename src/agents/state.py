@@ -22,6 +22,7 @@ class IncentiveState(TypedDict):
     # ===== DISCOVERY RESULTS =====
     # Accumulated from parallel nodes via add operator
     programs: Annotated[List[dict], add]
+    discovery_stats: Annotated[List[dict], add]
 
     # ===== POST-JOIN PROCESSING =====
     merged_programs: List[dict]

@@ -132,6 +132,11 @@ async def run_discovery_workflow(session_id: str, request: DiscoverRequest):
                     session["status"] = "validating"
                     session["validated_programs"] = node_output["validated_programs"]
 
+                # Accumulate per-level discovery stats
+                if "discovery_stats" in node_output and node_output["discovery_stats"]:
+                    existing_stats = session.get("discovery_stats", [])
+                    session["discovery_stats"] = existing_stats + node_output["discovery_stats"]
+
                 if "errors" in node_output and node_output["errors"]:
                     session["errors"].extend(node_output["errors"])
 
@@ -200,6 +205,7 @@ async def discover_incentives(
             "federal": "pending"
         },
         "errors": [],
+        "discovery_stats": [],
         "shortlisted_programs": [],
         "roi_questions": [],
         "roi_answers": {},
@@ -265,6 +271,57 @@ async def get_programs(session_id: str):
     )
 
     return {"programs": programs}
+
+
+@router.get("/{session_id}/discovery-stats")
+async def get_discovery_stats(session_id: str):
+    """
+    Get discovery pipeline stats — dedup funnel + cache efficiency.
+
+    Returns per-level stats and an aggregated session summary.
+    Ryan: dedup funnel (raw → exact dupes → merged → new → confirmed)
+    Jenny: cache efficiency (hits/misses, API credits used vs saved)
+    """
+    if session_id not in sessions:
+        raise HTTPException(status_code=404, detail="Session not found")
+
+    session = sessions[session_id]
+    per_level = session.get("discovery_stats", [])
+
+    # Aggregate across all levels
+    summary = {
+        "session_id": session_id,
+        "jurisdiction": session.get("address", ""),
+        "status": session.get("status", ""),
+        # Ryan: aggregate dedup funnel
+        "raw_discovered": sum(s.get("raw_extracted", 0) for s in per_level),
+        "exact_duplicates_skipped": sum(s.get("exact_duplicates_skipped", 0) for s in per_level),
+        "merged_with_existing": sum(s.get("merged_with_existing", 0) for s in per_level),
+        "new_programs_added": sum(s.get("new_programs_added", 0) for s in per_level),
+        "programs_confirmed": sum(s.get("programs_confirmed", 0) for s in per_level),
+        "from_cache_floor": sum(s.get("from_cache_floor", 0) for s in per_level),
+        "total_unique_programs": session.get("programs_found", 0),
+        "confidence_breakdown": {
+            "high": sum(s.get("confidence_breakdown", {}).get("high", 0) for s in per_level),
+            "medium": sum(s.get("confidence_breakdown", {}).get("medium", 0) for s in per_level),
+            "low": sum(s.get("confidence_breakdown", {}).get("low", 0) for s in per_level),
+        },
+        # Jenny: cache efficiency
+        "cache_hits": {
+            s["level"]: s.get("cache_hit", False)
+            for s in per_level
+        },
+        "api_credits_used": {
+            "exa_queries": sum(s.get("exa_queries_used", 0) for s in per_level),
+            "llm_calls": sum(s.get("llm_calls_used", 0) for s in per_level),
+            "total": sum(s.get("exa_queries_used", 0) + s.get("llm_calls_used", 0) for s in per_level),
+        },
+        "cached_programs_served": sum(s.get("cached_programs", 0) for s in per_level),
+        # Per-level breakdown
+        "by_level": {s["level"]: s for s in per_level},
+    }
+
+    return summary
 
 
 @router.post("/{session_id}/shortlist", response_model=ShortlistResponse)
