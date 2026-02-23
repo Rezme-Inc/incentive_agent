@@ -7,6 +7,7 @@ CREATE TABLE jurisdictions (
     name TEXT NOT NULL,
     level TEXT NOT NULL CHECK (level IN ('federal', 'state', 'county', 'city')),
     parent_id INTEGER REFERENCES jurisdictions(id),
+    county_id INTEGER REFERENCES jurisdictions(id),  -- for cities: which county they're in
     state_code CHAR(2),          -- e.g. 'AZ', NULL for federal
     fips_code TEXT,               -- census FIPS code (optional, useful later)
     created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -16,6 +17,7 @@ CREATE TABLE jurisdictions (
 CREATE INDEX idx_jurisdictions_level ON jurisdictions(level);
 CREATE INDEX idx_jurisdictions_state_code ON jurisdictions(state_code);
 CREATE INDEX idx_jurisdictions_parent ON jurisdictions(parent_id);
+CREATE INDEX idx_jurisdictions_county ON jurisdictions(county_id);
 
 -- 2. Target populations: canonical list
 CREATE TABLE target_populations (

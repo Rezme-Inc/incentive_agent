@@ -310,14 +310,24 @@ class ProgramCache:
         if level == "city":
             state_id = self._resolve_jurisdiction_id(cur, "state", "", state_name=state_name)
             city_clean = city_name.strip()
+            # Resolve county_id if county_name is provided
+            county_id = None
+            if county_name and county_name.strip():
+                try:
+                    county_id = self._resolve_jurisdiction_id(cur, "county", "", state_name=state_name, county_name=county_name)
+                except Exception:
+                    county_id = None
             cur.execute("SELECT id FROM jurisdictions WHERE level = 'city' AND name ILIKE %s AND parent_id = %s LIMIT 1",
                         (city_clean, state_id))
             row = cur.fetchone()
             if row:
+                # Update county_id if we have it and it's not set
+                if county_id:
+                    cur.execute("UPDATE jurisdictions SET county_id = %s WHERE id = %s AND county_id IS NULL", (county_id, row[0]))
                 return row[0]
             cur.execute(
-                "INSERT INTO jurisdictions (name, level, parent_id) VALUES (%s, 'city', %s) ON CONFLICT DO NOTHING RETURNING id",
-                (city_clean, state_id)
+                "INSERT INTO jurisdictions (name, level, parent_id, county_id) VALUES (%s, 'city', %s, %s) ON CONFLICT DO NOTHING RETURNING id",
+                (city_clean, state_id, county_id)
             )
             row = cur.fetchone()
             if row:
