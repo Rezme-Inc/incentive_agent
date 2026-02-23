@@ -4,6 +4,7 @@ Centralized configuration management using Pydantic Settings
 import os
 from typing import Optional
 from pydantic_settings import BaseSettings
+from pydantic import field_validator
 from functools import lru_cache
 
 
@@ -14,6 +15,11 @@ class Settings(BaseSettings):
     anthropic_api_key: str = ""
     tavily_api_key: str = ""
     exa_api_key: str = ""
+
+    @field_validator("anthropic_api_key", "tavily_api_key", "exa_api_key", "database_url", mode="before")
+    @classmethod
+    def strip_whitespace(cls, v: str) -> str:
+        return v.strip() if isinstance(v, str) else v
 
     # Model Configuration
     claude_model: str = "claude-haiku-4-5-20251001"
